@@ -1,0 +1,62 @@
+DROP DATABASE IF EXISTS dbSaviniTartufi;
+CREATE DATABASE dbSaviniTartufi;
+USE dbSaviniTartufi;
+
+CREATE TABLE IF NOT EXISTS CentriCosto (
+	Id INT PRIMARY KEY NOT NULL,
+	Nome VARCHAR (45) NOT NULL,
+	Citta VARCHAR (45) NOT NULL,
+	Cap INT NOT NULL,
+	Via VARCHAR (45) NOT NULL,
+	Ncivico VARCHAR (45) NOT NULL	
+);
+
+CREATE TABLE IF NOT EXISTS Fornitori (
+	Id INT PRIMARY KEY NOT NULL,
+	Nome VARCHAR (45) NOT NULL,
+	Citta VARCHAR (45) NOT NULL,
+	Cap INT NOT NULL,
+	Via VARCHAR (45) NOT NULL,
+	Ncivico VARCHAR (45) NOT NULL	
+);
+
+CREATE TABLE IF NOT EXISTS FattureAcquisto (
+	Ndocumento VARCHAR (45) PRIMARY KEY,
+	DataDoc DATE  NOT NULL,
+ 	CentroDiCosto VARCHAR (45) NOT NULL ,
+	Fornitore VARCHAR (45) NOT NULL ,
+    Imponibile FLOAT NOT NULL,
+    Iva FLOAT NOT NULL,
+    Totale FLOAT NOT NULL,
+    DataScadenza DATE  NOT NULL,
+    TipoPagamento VARCHAR (45) NOT NULL,
+	FOREIGN KEY (CentroDiCosto) REFERENCES CentriCosto (Id),
+	FOREIGN KEY (Fornitore) REFERENCES Fornitori (Id)
+);
+
+CREATE TABLE IF NOT EXISTS FattureVendita (
+	Ndocumento VARCHAR (45) PRIMARY KEY,
+	DataDoc DATE NOT NULL,
+ 	CentroDiCosto VARCHAR (45) NOT NULL,
+	Cliente VARCHAR (45) NOT NULL,
+    Imponibile FLOAT NOT NULL,
+    Iva FLOAT NOT NULL,
+    Totale FLOAT NOT NULL,
+    DataScadenza DATE  NOT NULL,
+    TipoPagamento VARCHAR (45) NOT NULL,
+	FOREIGN KEY (CentroDiCosto) REFERENCES CentriCosto (Id)
+);
+
+CREATE TABLE IF NOT EXISTS Prodotti (
+	Id VARCHAR (45) PRIMARY KEY,
+	Nome VARCHAR (45),
+	Prezzo FLOAT NOT NULL,
+	Peso FLOAT NOT NULL
+);
+
+CREATE TABLE Utenti (
+    Id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    Username VARCHAR(50) NOT NULL,
+    Password VARCHAR (255) NOT NULL
+    
+);
