@@ -20,8 +20,10 @@
 			if(password_verify($_POST['password'], $result[0]['password'])) {
 				$_SESSION['logged'] = true;
 				header("Location: index.php");
-			}
-		}
+            } else $_SESSION['div-error'] = true;
+            
+		}else $_SESSION['div-error'] = true;
+
 	}
 ?>
 
@@ -34,13 +36,18 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <form method="POST" action="login.php">
+        <form id="loginForm" method="POST" action="login.php">
             <h1>Login</h1>
             <input type="text" id="username" placeholder="Username" name="username">
             <input type="password" id="password" placeholder="Password" name="password">
             <button type="submit" class="btn btn-primary" name="login" id="login">Accedi</button>
             <button type="reset" class="btn btn-danger">Annulla</button> 
-            <label for="text">Se non hai un account premi<a href="registra.php"> qui</a></label>
+            <div <?php if(!isset($_SESSION['div-error'])) echo 'hidden'; ?> >
+                <p>Username o password errati</p>
+            </div>
+            <?php
+                unset($_SESSION['div-error']);
+            ?>
         </form>
     </body>
 </html>

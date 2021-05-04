@@ -1,6 +1,12 @@
 <?php
     ob_start();
     session_start();
+
+    if(isset($_POST["logout"])) {
+        session_destroy();
+        header("Location: login.php");
+    }
+
     if(!isset($_SESSION['logged']))
         header("Location: login.php");
 ?>
@@ -16,12 +22,16 @@
         <title>Gestione fatture Savini Tartufi</title>
     </head>
     <body>
+    <img src="./img/logo.png">
         <h1>Home</h1>
-        <a href="formVendita.php"><button class="btn btn-primary">Inserisci fatt vendita</button></a>
-        <a href="formAcquisto.php"><button class="btn btn-primary">Inserisci fatt acquisto</button></a>
-        <a href=""><button class="btn btn-primary">Inserisci centro di costo</button></a>
-        <a href=""><button class="btn btn-primary">Inserisci fornitore</button></a>
-        <a href=""><button class="btn btn-primary">Inserisci prodotto</button></a>
-        <a href=""><button class="btn btn-primary">Ricerca fattura</button></a>    
+        <form action="index.php" method="post">
+            <a href="formVendita.php"><button class="btn btn-primary">Inserisci fatt vendita</button></a>
+            <a href="formAcquisto.php"><button class="btn btn-primary">Inserisci fatt acquisto</button></a>
+            <a href="formCentriCosto.html"><button class="btn btn-primary">Inserisci centro di costo</button></a>
+            <a href="formFornitori.html"><button class="btn btn-primary">Inserisci fornitore</button></a>
+            <a href="formProdotti.html"><button class="btn btn-primary">Inserisci prodotto</button></a>
+            <a href=""><button class="btn btn-primary">Ricerca fattura</button></a> 
+            <button type="submit" class="btn btn-danger" name="logout">Esci</button>
+        </form>
     </body>
 </html>
