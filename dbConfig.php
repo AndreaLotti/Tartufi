@@ -1,6 +1,6 @@
 <?php
 
-    $host = 'localhost:3310';
+    $host = 'localhost';
     $dbname = 'dbsavinitartufi';
     $username = 'root';
     $password = '';
