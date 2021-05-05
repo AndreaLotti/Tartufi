@@ -8,6 +8,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+      <link rel="stylesheet" href="style.css">
       <title>Form Acquisto</title>
   </head>
   <body>
@@ -35,7 +36,7 @@
           <label class="col-sm-2 col-form-label">Centro di costo:</label>
           <div class="col-sm-10">
             <select class="form-control col-sm-3">';  
-            $result = doQuery("SELECT nome FROM CentriCosto ORDER BY nome ASC");
+            $result = doQuery("SELECT nome FROM CentroCosto ORDER BY nome ASC");
             foreach($result as $value) {
               $form .= '<option>' . $value['nome'] . '</option>';
             }  
@@ -46,7 +47,7 @@
           <label class="col-sm-2 col-form-label">Fornitore:</label>
           <div class="col-sm-10">
             <select class="form-control col-sm-3">';  
-            $result = doQuery("SELECT nome FROM Fornitori ORDER BY nome ASC");
+            $result = doQuery("SELECT nome FROM Fornitore ORDER BY nome ASC");
             foreach($result as $value) {
               $form .= '<option>' . $value['nome'] . '</option>';
             }  

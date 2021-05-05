@@ -2,18 +2,8 @@
 	require_once './dbConfig.php';
 	session_start();
 	if(isset($_POST['login'])) {
-		$query  = "SELECT password FROM utenti WHERE Username = '" . $_POST['username'] . "';";
-		try{
-			$connection = new PDO( "mysql:host=$host;dbname=$dbname;", $username, $password);
-            $result = array();
-            foreach($connection->query($query) as $index=>$value){
-                array_push($result, $value);
-            }
-			
-		}catch(PDOException $e){
-			print "Error!: " . $e->getMessage() . "<br>";
-            die();
-		}
+		$query  = "SELECT password FROM utente WHERE Username = '" . $_POST['username'] . "';";
+        $result = doQuery($query);
 
 		if(count($result) != 0) {
             
@@ -32,7 +22,7 @@
         <title>Login</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-        <link rel="stylesheet" href="stili.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <form id="loginForm" method="POST" action="login.php">
