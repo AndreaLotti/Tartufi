@@ -7,6 +7,12 @@
     border-radius: 5%;
 }
 
+#logo {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
 html,body {
     padding: 0;
     margin: 0;
@@ -28,6 +34,7 @@ input {
 	margin-bottom: 10px;
     width: 96%;
 }
+
 button {
     font: 14px 'Open Sans', sans-serif;
     background-color: #4285f4;
@@ -39,10 +46,22 @@ button {
 	text-transform: uppercase;
 }
 
-#insertForm {
-    padding: 40px;
-    width: 360px;
-    margin: 30px auto;
+.navbar-brand {
+    width: 12.5%;
+    text-align: center;
+    transition-duration: 0.5s;
+}
+
+.navbar-brand:hover {
+    background-color: #a49261;
+}
+
+.insertForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
 }
 
 #loginForm {

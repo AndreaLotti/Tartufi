@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stile.css">
     <title>Form Vendita</title>
 </head>
 <body>
-  <div class="w-50 mx-auto">
+  <div class="w-50 mx-auto insertForm" >
     <form class="mx-auto" method="POST" >
       <div class="form-group row">
         <label  class="col-sm-2 col-form-label">Numero documento:</label>
@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Centro di costo:</label>
+        <label class="col-sm-5 col-form-label">Centro di costo:</label>
         <div class="col-sm-10">
           <select class="form-control col-sm-3">
             <?php
@@ -73,14 +73,10 @@
       </select>
       </div>
     </div>
-    <div class="form-group row">
-      
       <div class="col-sm-10">
         <button type="button" class="btn btn-primary">Aggiungi</button>
         <button type="reset" class="btn btn-danger">Annulla</button> 
       </div>
-    </div>
-    </div>
     </form>
   </div>
 </body>
